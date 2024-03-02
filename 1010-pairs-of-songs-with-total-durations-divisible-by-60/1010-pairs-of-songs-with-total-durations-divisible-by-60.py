@@ -4,6 +4,7 @@ class Solution:
         paired_dict = defaultdict(int)
         for i in time:
             if not i%60:
+                print('1', paired_dict)
                 count += paired_dict[0]
             else:
                 count += paired_dict[60-(i%60)]
