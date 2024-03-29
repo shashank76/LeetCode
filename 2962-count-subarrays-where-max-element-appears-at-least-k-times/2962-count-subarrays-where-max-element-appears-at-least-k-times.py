@@ -2,17 +2,17 @@ class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
         out = 0
         count, max_val = 0, max(nums)
-        l = 0
-        for r in range(len(nums)):
-            if nums[r] == max_val:
+        i = 0
+        for j in range(len(nums)):
+            if nums[j] == max_val:
                 count +=1
-            while count > k or ( l <= r and count == k and nums[l] != max_val):
-                if nums[l] == max_val:
+            while count > k or ( i <=j and count == k and nums[i] != max_val):
+                if nums[i] == max_val:
                     count -=1
-                l+=1
+                i+=1
                 
             if count == k:
-                out += l+1
+                out += i+1
             
         return out
         
