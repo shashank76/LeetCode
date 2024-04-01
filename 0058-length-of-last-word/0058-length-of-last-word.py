@@ -7,4 +7,5 @@ class Solution:
                 return len(arr[n])
             else:
                 n-=1
+        return 0
         
