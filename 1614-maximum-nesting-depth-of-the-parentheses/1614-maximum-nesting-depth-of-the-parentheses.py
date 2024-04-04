@@ -5,8 +5,8 @@ class Solution:
         for i in s:
             if i == "(":
                 count+=1
-            out = max(out, count)
-            if i == ")":
+            elif i == ")":
                 count-=1
+            out = max(out, count)
         return out
         
