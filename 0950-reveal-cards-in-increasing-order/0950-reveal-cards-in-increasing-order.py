@@ -7,8 +7,7 @@ class Solution:
             x = q.popleft()
             out[x] = i
             if q:
-                q.append(q.popleft())
-            
+                q.append(q.popleft())   
         return out
             
         
