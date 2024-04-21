@@ -7,24 +7,24 @@ class Solution:
         if [source, destination] in edges:
             return True
 
-        graph = defaultdict(set)
+        dictVals = defaultdict(set)
         for edge in edges:
-            graph[edge[0]].add(edge[1])
-            graph[edge[1]].add(edge[0])
+            dictVals[edge[0]].add(edge[1])
+            dictVals[edge[1]].add(edge[0])
 
-        des_list = [graph[source]]
-        visits = [False] * n
-        while des_list:
+        listVals = [dictVals[source]]
+        visited = [False] * n
+        while listVals:
             new_list = []
-            for des in des_list:
-                if destination in des:
+            for vals in listVals:
+                if destination in vals:
                     return True
-                for node in des:
-                    if visits[node]:
+                for node in vals:
+                    if visited[node]:
                         continue
-                    visits[node] = True
-                    new_list.append(graph[node])
-            des_list = new_list
+                    visited[node] = True
+                    new_list.append(dictVals[node])
+            listVals = new_list
 
         return False
         
