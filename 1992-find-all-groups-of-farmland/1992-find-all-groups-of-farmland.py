@@ -1,26 +1,35 @@
 class Solution:
     def findFarmland(self, land: List[List[int]]) -> List[List[int]]:
         rows, cols = len(land), len(land[0]) 
-        farmland_groups = []
-        queue = deque()
-        directions = ((-1, 0), (0, 1), (1, 0), (0, -1))
-
-        for row in range(rows):
-            for col in range(cols):
-                if land[row][col] == 1:
-                    queue.append((row, col))
-                    land[row][col] = 0
-                    farmland_coords = [row, col, -1, -1]
-                    max_row, max_col = row, col
-                    while queue:
-                        r1, c1 = queue.popleft()
-                        max_row, max_col = max(max_row, r1), max(max_col, c1)
-                        for dr, dc in directions:
-                            r2, c2 = r1 + dr, c1 + dc
-                            if 0 <= r2 < rows and 0 <= c2 < cols and land[r2][c2] == 1:
-                                land[r2][c2] = 0
-                                queue.append((r2, c2))
-                    farmland_coords[2], farmland_coords[3] = max_row, max_col
-                    farmland_groups.append(farmland_coords)
-        return farmland_groups
+        def dfs(x, y):
+            stack = [(x, y)]
+            min_row, min_col = x, y
+            max_row, max_col = x, y
+            visited.add((x, y))
+            
+            while stack:
+                cur_x, cur_y = stack.pop()
+                for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                    nx, ny = cur_x + dx, cur_y + dy
+                    if 0 <= nx < rows and 0 <= ny < cols and (nx, ny) not in visited and land[nx][ny] == 1:
+                        visited.add((nx, ny))
+                        stack.append((nx, ny))
+                        min_row = min(min_row, nx)
+                        min_col = min(min_col, ny)
+                        max_row = max(max_row, nx)
+                        max_col = max(max_col, ny)
+            
+            return (min_row, min_col, max_row, max_col)
+        
+        rows, cols = len(land), len(land[0])
+        visited = set()
+        result = []
+        
+        for i in range(rows):
+            for j in range(cols):
+                if land[i][j] == 1 and (i, j) not in visited:
+                    min_row, min_col, max_row, max_col = dfs(i, j)
+                    result.append([min_row, min_col, max_row, max_col])
+        
+        return result
         
