@@ -1,6 +1,11 @@
 class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
-        paired = [[p, s] for p, s in zip(position, speed)]
+        paired = []
+        i = 0
+        while i < len(position):
+            paired.append([position[i], speed[i]])
+            i+=1
+        
         stack = []
         
         for p, s in sorted(paired)[::-1]:
