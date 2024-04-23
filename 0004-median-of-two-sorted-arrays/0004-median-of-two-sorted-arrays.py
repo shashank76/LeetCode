@@ -12,7 +12,6 @@ class Solution:
             R2 = nums2[j+1] if (j + 1) < n else inf
             if L1 <= R2 and R1 <= L2:
                 if (m + n) % 2:
-                    print(L2, R2)
                     return min(L2, R2)
                 return (max(L1, R1) + min(L2, R2)) / 2.0
             if L1 > R2:
@@ -22,8 +21,7 @@ class Solution:
                 l = i + 1
                 return find_meadin(l, r)
 
-        m = len(nums1)
-        n = len(nums2)
+        m, n = len(nums1), len(nums2)
         mid = (m + n) // 2
         l, r = 0, m - 1
         return find_meadin(l, r)
