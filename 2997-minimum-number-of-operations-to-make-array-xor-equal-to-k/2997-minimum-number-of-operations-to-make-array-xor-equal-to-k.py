@@ -1,9 +1,9 @@
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
-        ans=0
+        out=0
         for i in nums:
-            ans^=i
+            out^=i
             
-        ans=ans^k
-        return bin(ans).count('1')
+        out=out^k
+        return bin(out).count('1')
         
