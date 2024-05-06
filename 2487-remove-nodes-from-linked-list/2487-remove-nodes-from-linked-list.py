@@ -17,5 +17,6 @@ class Solution:
             curr.next = ListNode(i)
             curr = curr.next
         return node.next
+            
                 
         
