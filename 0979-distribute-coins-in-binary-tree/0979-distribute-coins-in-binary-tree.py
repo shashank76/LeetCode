@@ -6,15 +6,16 @@
 #         self.right = right
 class Solution:
     def distributeCoins(self, root: Optional[TreeNode]) -> int:
-        out = [0]
+        self.out = 0
         def dfs(node):
             if node is None:
                 return 0
             left = dfs(node.left)
             right = dfs(node.right)
-            out[0] += abs(left) + abs(right)
-            return node.val + left + right - 1
+            cal_val = node.val + left + right - 1
+            self.out += abs(cal_val)
+            return cal_val
         dfs(root)
-        return out[0]
+        return self.out
                 
         
