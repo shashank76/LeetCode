@@ -1,7 +1,6 @@
 class Solution:
     def maximumSafenessFactor(self, grid: List[List[int]]) -> int:
         n = len(grid)
-        
         def isValidIndex(r, c):
             return min(r, c) >= 0 and max(r,c) < n
         
