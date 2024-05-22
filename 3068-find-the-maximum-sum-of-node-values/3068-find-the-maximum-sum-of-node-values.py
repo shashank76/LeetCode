@@ -1,20 +1,13 @@
 class Solution:
     def maximumValueSum(self, nums: List[int], k: int, edges: List[List[int]]) -> int:
-        count = 0
-        minVal = float('inf')
-        out = 0
+        xor_nums = [(i^k)-i for i in nums]
+        xor_nums.sort(reverse=True)
+        out = sum(nums)
 
-        for i in nums:
-            val = i ^ k
-            if i < val:
-                count += 1
+        for i in range(0, len(nums), 2):
+            if i == len(nums)-1: 
+                break
+            val = xor_nums[i] +  xor_nums[i+1]
+            if val > 0: 
                 out += val
-                minVal = min(minVal, val - i)
-            else:
-                out += i
-                minVal = min(minVal, i - val)
-
-        if count % 2:
-            out -= minVal
-
         return out
