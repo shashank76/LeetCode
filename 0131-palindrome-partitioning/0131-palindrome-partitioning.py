@@ -19,8 +19,7 @@ class Solution:
                     j+=1
             else:
                 out.append(temp.copy())
-                return
-             
+                return 
         dfs(0)
         return out
     
