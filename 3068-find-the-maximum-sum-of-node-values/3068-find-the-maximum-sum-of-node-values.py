@@ -5,9 +5,8 @@ class Solution:
         out = sum(nums)
 
         for i in range(0, len(nums), 2):
-            if i == len(nums)-1: 
-                break
-            val = xor_nums[i] +  xor_nums[i+1]
-            if val > 0: 
-                out += val
+            if i < len(nums)-1: 
+                val = xor_nums[i] +  xor_nums[i+1]
+                if val > 0: 
+                    out += val
         return out
