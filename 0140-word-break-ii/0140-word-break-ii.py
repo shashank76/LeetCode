@@ -1,18 +1,30 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
-        out = []
-        cur = []
         wordDict = set(wordDict)
+        cache = {}
+        
         def helper(i):
             if i == len(s):
-                out.append(" ".join(cur))
-                return out
+                return [""]
+            if i in cache:
+                return cache[i]
+            out = []
             for j in range(i, len(s)):
                 w = s[i:j+1]
-                if w in wordDict:
-                    cur.append(w)
-                    helper(j+1)
-                    cur.pop()
-        helper(0)
-        return out
-        
+                if w not in wordDict:
+                    continue
+                strs = helper(j+1)
+                
+                if not strs:
+                    continue
+                
+                for x in strs:
+                    vals = w
+                    if x:
+                        vals = vals + " " + x
+                    out.append(vals)
+            cache[i] = out
+            return out
+                
+                    
+        return helper(0)        
