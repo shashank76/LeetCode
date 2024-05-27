@@ -7,12 +7,12 @@ class Solution:
             counter[i] += 1
         
         out = 0
-
-        for i in range(len(nums), -1, -1):
+        i = len(nums)
+        while i >= 0:
             out += counter[i]
-
             if i == out:
                 return out
+            i-=1
         return -1
         
         # nums.sort()
