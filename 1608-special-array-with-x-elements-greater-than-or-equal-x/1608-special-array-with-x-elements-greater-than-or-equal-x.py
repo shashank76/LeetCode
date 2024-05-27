@@ -4,7 +4,6 @@ class Solution:
         n = len(nums)
         prev = 0
         i = 0
-        print(nums)
         while i < len(nums):
             if nums[i] < n:
                 n-=1
