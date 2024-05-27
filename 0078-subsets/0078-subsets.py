@@ -14,4 +14,9 @@ class Solution:
             
         helper(0)
         return out
+        # out = [[]]
+        # for i in nums:
+        #     for j in range(len(out)):
+        #         out.append(out[j]+[i])
+        # return out
         
