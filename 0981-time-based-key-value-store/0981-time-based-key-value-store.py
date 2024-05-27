@@ -17,10 +17,7 @@ class TimeMap:
         i, j = 0, len(vals) - 1
         while i <= j:
             m = (i+j) // 2
-            if vals[m][1] == timestamp:
-                out = vals[m][0]
-                return out
-            elif vals[m][1] < timestamp:
+            if vals[m][1] <= timestamp:
                 out = vals[m][0]
                 i = m+1
             else:
