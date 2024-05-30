@@ -16,19 +16,19 @@ class Solution:
         return out
             
         
-        # for i in range(n):
+        # for i in range(n-1):
         #     a = 0
-        #     for j in range(i+1, n+1):
+        #     for j in range(i+1, n):
         #         a ^= arr[j-1]
         #         b = 0
-        #         for k in range(j, n+1):
+        #         for k in range(j, n):
         #             b ^= arr[k]
         #             if a == b:
         #                 out+=1
         # return out
-#         for i in range(n):
+#         for i in range(n-1):
 #             a = arr[i]
-#             for j in range(i+1, n+1):
+#             for j in range(i+1, n):
 #                 a ^= arr[j]
 #                 if a == 0:
 #                     out+=j-1
