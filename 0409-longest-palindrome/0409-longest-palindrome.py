@@ -1,11 +1,15 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        counter = Counter(s)
+        visited = set()
         out = 0
-        for i in counter.values():
-            out += int(i/2)*2
-            if out % 2 == 0 and i%2 == 1:
-                out += 1
+        for i in s:
+            if i in visited:
+                visited.remove(i)
+                out += 2
+            else:
+                visited.add(i)
+        if visited:
+            out+=1
         return out
             
         
