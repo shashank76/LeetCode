@@ -17,7 +17,6 @@ class Solution:
                 out += pos_arr(seats[i], students[i])
             elif seats[i] > students[i]:
                 out += pos_arr(students[i], seats[i])
-            print(seats[i], students[i], out)
             i+=1
         return out
         
