@@ -8,6 +8,8 @@ class Solution:
         for i in nums:
             newDictVal = dictVal.copy()
             for j in dictVal:
+                if i+j == target:
+                    return True
                 newDictVal.add(i+j)
             dictVal = newDictVal
         return True if target in dictVal else False
