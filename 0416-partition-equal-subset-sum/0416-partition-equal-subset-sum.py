@@ -3,12 +3,12 @@ class Solution:
         if len(nums) < 2 or sum(nums) % 2:
             return False
         target = sum(nums)//2
-        dp = set()
-        dp.add(0)
+        dictVal = set()
+        dictVal.add(0)
         for i in nums:
-            new_dp = dp.copy()
-            for j in dp:
-                new_dp.add(i+j)
-            dp = new_dp
-        return True if target in dp else False
+            newDictVal = dictVal.copy()
+            for j in dictVal:
+                newDictVal.add(i+j)
+            dictVal = newDictVal
+        return True if target in dictVal else False
         
