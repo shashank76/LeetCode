@@ -6,6 +6,7 @@ class Solution:
         def backtraking(cur, i, target):
             if target == 0:
                 out.append(cur.copy())
+                return 
             elif target < 0:
                 return
             
