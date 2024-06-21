@@ -1,9 +1,8 @@
 class Solution:
     def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
-        satisfied, not_satisfied = 0, 0
-        maxVal = 0
+        satisfied, not_satisfied, maxVal = 0, 0, 0
         l, r = 0, 0
-        
+    
         while r < len(customers):
             if grumpy[r]:
                 not_satisfied += customers[r]
