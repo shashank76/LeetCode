@@ -5,7 +5,8 @@ class Solution:
         minVal = float('inf')
         nums.sort()
         for i in range(4):
-            r = len(nums)-4+i
-            minVal = min(minVal, nums[r] - nums[i]) 
+            j = len(nums)-4+i
+            print(nums, i, j)
+            minVal = min(minVal, nums[j] - nums[i]) 
         return minVal
         
