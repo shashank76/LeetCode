@@ -10,7 +10,6 @@ class Solution:
             for j in range(len(matrix)):
                 col_max = max(col_max, matrix[j][i])
             if col_max in row_min:
-                out.append(col_max)
-            
+                out.append(col_max) 
         return out
         
