@@ -11,5 +11,4 @@ class Solution:
             pairVals.append((mappedVal, i))
         
         pairVals.sort()
-        out = [nums[x[1]] for x in pairVals]
-        return out
+        return [nums[x[1]] for x in pairVals]
