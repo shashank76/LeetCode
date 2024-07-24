@@ -1,7 +1,6 @@
 class Solution:
     def sortJumbled(self, mapping: List[int], nums: List[int]) -> List[int]:
         pairVals = []
-        
         for i, v in enumerate(nums):
             val = str(v)
             mappedVal =0
