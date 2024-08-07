@@ -14,7 +14,6 @@ class Solution:
                 break
         if not (i<=j):
             return False
-        print(i, j)
         row = (i+j)//2
         
         l, r = 0, cols-1
