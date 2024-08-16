@@ -16,10 +16,10 @@ class Solution:
         def dfs(node):
             if node in cloneGraph:
                 return cloneGraph[node]
-            copy = Node(node.val)
-            cloneGraph[node] = copy
-            for i in node.neighbors:
-                copy.neighbors.append(dfs(i))
-            return copy
+            newNode = Node(node.val)
+            cloneGraph[node] = newNode
+            for neiNode in node.neighbors:
+                newNode.neighbors.append(dfs(neiNode))
+            return newNode
         return dfs(node)
         
