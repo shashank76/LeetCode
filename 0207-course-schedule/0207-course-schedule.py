@@ -8,7 +8,7 @@ class Solution:
         def dfs(course):
             if course in visited:
                 return False
-            elif  preReqMap[course] == []:
+            elif preReqMap[course] == []:
                 return True
             visited.add(course)
             for i in preReqMap[course]:
