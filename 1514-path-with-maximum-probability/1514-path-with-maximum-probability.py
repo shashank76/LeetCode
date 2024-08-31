@@ -7,14 +7,14 @@ class Solution:
             adjList[b].append((a, succProb[i]))
         
         q = [(-1, start_node)]
-        visited = {}
+        visited = set()
         while len(q):
             val, node = heapq.heappop(q)
             if node in visited:
                 continue
             if node == end_node:
                 return -val
-            visited[node] = 1
+            visited.add(node)
             for i, prob in adjList[node]:
                 heapq.heappush(q, (val*prob, i))
         return 0
