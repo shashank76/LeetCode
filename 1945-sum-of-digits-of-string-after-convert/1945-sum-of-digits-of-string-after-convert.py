@@ -9,7 +9,6 @@ class Solution:
         vals=''
         for i in s:
             vals+=alphabeatsDict[i]
-        print(vals)
         for i in range(k):
             vals = list(vals)
             out = 0
