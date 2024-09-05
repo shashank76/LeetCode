@@ -3,11 +3,11 @@ class Solution:
         m = len(rolls)
         totalVal = mean *(m+n)
         missingVal = totalVal - sum(rolls)
+        out = []
         
         if missingVal > 6*n or missingVal < n:
-            return []
+            return out
         
-        out = []
         
         while n:
             val = min(6, missingVal-n+1)
